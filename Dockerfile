@@ -4,7 +4,7 @@
 #
 # Reference:  https://github.com/wg/wrk
 #
-# Version     1.0
+# Version     1.1
 #
 
 # pull base image
@@ -39,6 +39,9 @@ RUN DEBIAN_FRONTEND=noninteractive \
     apt-get clean
 
 
+# configure
+VOLUME [ "/data" ]
+WORKDIR /data
 
 # for convenience
 ENV PATH /opt:$PATH

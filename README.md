@@ -25,6 +25,8 @@ This docker image contains the following software stack:
 
 ### History
 
+- 1.1 - Add: VOLUME `/data` for Lua script file.
+
 - 1.0 - Initial release.
 
 
@@ -51,4 +53,13 @@ Pull specific version:
 
 ```
 $ docker run --rm williamyeh/wrk
+```
+
+
+#### Script example
+
+```
+$ docker run --rm  -v `pwd`:/data  \
+      williamyeh/wrk  \
+      -s script.lua  http://www.google.com/
 ```
