@@ -25,6 +25,8 @@ This docker image contains the following software stack:
 
 ### History
 
+- 1.2 - Add: demo screencast.
+
 - 1.1 - Add: VOLUME `/data` for Lua script file.
 
 - 1.0 - Initial release.
@@ -44,6 +46,10 @@ Pull specific version:
    $ docker pull williamyeh/wrk:3.1.1
    ```
 
+
+## Comparison
+
+See the following screencast for a simple comparison between native vs. Dockerized versions of wrk: http://youtu.be/On-r4sKt5c8
 
 
 ## Usage
