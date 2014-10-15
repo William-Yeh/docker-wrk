@@ -49,7 +49,7 @@ Pull specific version:
 
 ## Comparison
 
-See the following screencast for a simple comparison between native vs. Dockerized versions of wrk: http://youtu.be/On-r4sKt5c8
+See the following screencast for a simple comparison between native vs. Dockerized versions of wrk: http://youtu.be/bXF6blDP0s0
 
 
 ## Usage
