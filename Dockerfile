@@ -36,7 +36,8 @@ RUN DEBIAN_FRONTEND=noninteractive \
     cd /tmp  && \
     rm -rf wrk*  *.tar.gz  && \
     apt-get remove -y --auto-remove curl make gcc  && \
-    apt-get clean
+    apt-get clean  && \
+    rm -rf /var/lib/apt/lists/*
 
 
 # configure
