@@ -13,17 +13,21 @@ This repository contains Dockerized [wrk](https://github.com/wg/wrk), published 
 
 This docker image contains the following software stack:
 
-- OS: Debian jessie (built from [debian:jessie](https://registry.hub.docker.com/_/debian/)).
+- Basic glibc and libnss stuff.
 
 - wrk
+
+Total image size is less than 10 MB.
 
 
 ### Dependencies
 
-- [debian:jessie](https://registry.hub.docker.com/_/debian/).
+- `scratch`.
 
 
 ### History
+
+- 2.0 - Change base image from [`debian:jessie`](https://registry.hub.docker.com/_/debian/) to `scratch` (beginning from `williamyeh/wrk:4.0.1`).
 
 - 1.2 - Add: demo screencast.
 
@@ -43,7 +47,7 @@ Pull all versions:
 Pull specific version:
 
    ```
-   $ docker pull williamyeh/wrk:4.0.0
+   $ docker pull williamyeh/wrk:4.0.1
    ```
 
 
