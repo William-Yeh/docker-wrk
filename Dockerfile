@@ -11,7 +11,7 @@
 FROM debian:jessie
 MAINTAINER William Yeh <william.pjyeh@gmail.com>
 
-ENV VERSION 3.1.1
+ENV VERSION 4.0.0
 ENV TARBALL https://github.com/wg/wrk/archive/$VERSION.tar.gz
 
 
@@ -27,8 +27,8 @@ RUN DEBIAN_FRONTEND=noninteractive \
     curl -L --insecure $TARBALL -o wrk-src.tar.gz && \
     tar xvzf wrk-src.tar.gz  && \
     cd /tmp/wrk-$VERSION  && \
-    make  && \
-    cp wrk /opt  && \
+    make       && \
+    cp wrk /   && \
     \
     \
     \
@@ -45,9 +45,8 @@ VOLUME [ "/data" ]
 WORKDIR /data
 
 # for convenience
-ENV PATH /opt:$PATH
 RUN date '+%Y-%m-%dT%H:%M:%S%:z' > /var/log/DOCKER_BUILD_TIME
 
 
 # Define default command.
-ENTRYPOINT ["wrk"]
+ENTRYPOINT ["/wrk"]

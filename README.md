@@ -43,7 +43,7 @@ Pull all versions:
 Pull specific version:
 
    ```
-   $ docker pull williamyeh/wrk:3.1.1
+   $ docker pull williamyeh/wrk:4.0.0
    ```
 
 
