@@ -1,10 +1,12 @@
 language: c
-
 compiler: gcc
 
-install:
+sudo: required
+
+script:
   - cd build-rootfs
   - ./build.sh
-  - cp rootfs.tar.gz ..
-  - cd ..
+
+after_success:
+  - cp build-rootfs/rootfs.tar.gz .
   - tar ztvf rootfs.tar.gz
