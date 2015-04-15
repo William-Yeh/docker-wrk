@@ -1,0 +1,10 @@
+language: c
+
+compiler: gcc
+
+install:
+  - cd build-rootfs
+  - ./build.sh
+  - cp rootfs.tar.gz ..
+  - cd ..
+  - tar ztvf rootfs.tar.gz
