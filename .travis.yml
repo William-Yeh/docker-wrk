@@ -1,0 +1,12 @@
+language: c
+compiler: gcc
+
+sudo: required
+
+script:
+  - cd build-rootfs
+  - ./build.sh
+
+after_success:
+  - cp build-rootfs/rootfs.tar.gz .
+  - tar ztvf rootfs.tar.gz
