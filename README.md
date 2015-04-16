@@ -1,9 +1,7 @@
 Docker-Wrk
 ============
 
-[![Build Status](https://travis-ci.org/William-Yeh/docker-wrk.svg?branch=master)](https://travis-ci.org/William-Yeh/docker-wrk)
-
-[![Circle CI](https://circleci.com/gh/William-Yeh/docker-wrk.svg?style=svg)](https://circleci.com/gh/William-Yeh/docker-wrk)
+[![Build Status](https://travis-ci.org/William-Yeh/docker-wrk.svg?branch=master)](https://travis-ci.org/William-Yeh/docker-wrk) [![Circle CI](https://circleci.com/gh/William-Yeh/docker-wrk.svg?style=svg)](https://circleci.com/gh/William-Yeh/docker-wrk)
 
 
 ## Summary
