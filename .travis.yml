@@ -3,7 +3,8 @@ install:
 
 script:
   - cd build-rootfs
-  - ./run 'docker-compose up'
+  - ../run 'docker-compose up'
+  - tar ztvf rootfs.tar.gz
   - cd ..
   - cp build-rootfs/rootfs.tar.gz .
   - ./run 'docker build -t wrk .  &&  docker run wrk http://www.google.com/'
