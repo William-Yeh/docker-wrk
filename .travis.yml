@@ -2,9 +2,7 @@ install:
   - curl -sLo - https://github.com/moul/travis-docker/raw/master/install.sh | sh -xe
 
 script:
-  - cd build-rootfs
-  - ../run 'docker-compose up'
-  - tar ztvf rootfs.tar.gz
-  - cd ..
-  - cp build-rootfs/rootfs.tar.gz .
+  - echo "==> Generating rootfs.tar.gz"
+  - ./run 'docker build -t rootfs build-rootfs  &&  docker run -v $(pwd):/data rootfs'
+  - echo "==> Building the main Docker image"
   - ./run 'docker build -t wrk .  &&  docker run wrk http://www.google.com/'
