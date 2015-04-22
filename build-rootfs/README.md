@@ -3,7 +3,7 @@ Building rootfs for static wrk
 
 ## Build it
 
-You may choose to build it with eithor Docker or Vagrant.
+You may choose to build it with either Docker or Vagrant.
 
 - Build it with Docker:
 
