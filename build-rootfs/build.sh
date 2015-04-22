@@ -13,7 +13,8 @@ echo "=====> Building wrk..."
 
 echo
 echo "=====> Packing wrk executable..."
-./extract-elf-so_static_linux-amd64  \
+curl -sSL http://bit.ly/install-extract-elf-so | sudo bash
+extract-elf-so  \
     --nss-net  -z  \
     $WRK_ELF
 

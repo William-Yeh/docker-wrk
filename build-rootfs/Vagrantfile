@@ -1,8 +1,9 @@
 Vagrant.configure(2) do |config|
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "williamyeh/ubuntu-trusty64-docker"
+  #config.vm.box = "ubuntu/trusty64"
 
   config.vm.provision "shell", inline: <<-SHELL
-      cd /vagrant
-      ./build.sh
+    cd /vagrant
+    docker-compose up
   SHELL
 end

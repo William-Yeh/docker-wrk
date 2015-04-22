@@ -1,17 +1,9 @@
-language: c
-compiler: gcc
-
-sudo: required
-
-
-before_install:
-  - sudo apt-get update -qq
-  - sudo apt-get install -qq libnss-myhostname
+install:
+  - curl -sLo - https://github.com/moul/travis-docker/raw/master/install.sh | sh -xe
 
 script:
   - cd build-rootfs
-  - ./build.sh
-
-after_success:
+  - ./run 'docker-compose up'
+  - cd ..
   - cp build-rootfs/rootfs.tar.gz .
-  - tar ztvf rootfs.tar.gz
+  - ./run 'docker build -t wrk .  &&  docker run wrk http://www.google.com/'

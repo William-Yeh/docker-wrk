@@ -1,9 +1,7 @@
 # Dockerfile for building rootfs.tar.gz
 #
 # USAGE:
-#   $ docker build  -t build-rootfs  -f Dockerfile.rootfs  .
-#   $ docker run  -v $(pwd):/data  build-rootfs 
-#
+#   $ docker-compose up
 #
 # Version  1.0
 #
@@ -26,7 +24,7 @@ RUN DEBIAN_FRONTEND=noninteractive  \
 
 
 WORKDIR /tmp
-COPY    build-rootfs  /tmp
+COPY    .  /tmp
 RUN     ./build.sh
 
 

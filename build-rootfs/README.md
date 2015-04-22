@@ -1,17 +1,21 @@
 Building rootfs for static wrk
 ===
 
-## Build it on Linux
+## Build it
 
-```bash
-$ ./build.sh
-```
+You may choose to build it with eithor Docker or Vagrant.
 
-## Build it on Vagrant
+- Build it with Docker:
 
-```bash
-$ vagrant up
-```
+  ```bash
+  $ docker-compose up
+  ```
+
+- Build it with Vagrant:
+
+  ```bash
+  $ vagrant up
+  ```
 
 ## Done!
 
@@ -21,4 +25,4 @@ If everything is ok, you'll obtain one file:
 
 ## About
 
-The `extract-elf-so_static_linux-amd64` executable is copied from the project: [`William-Yeh/extract-elf-so`](https://github.com/William-Yeh/extract-elf-so).
+The `build.sh` uses the executable `extract-elf-so` copied from the project: [`William-Yeh/extract-elf-so`](https://github.com/William-Yeh/extract-elf-so).
