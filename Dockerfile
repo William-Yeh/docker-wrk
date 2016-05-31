@@ -4,20 +4,19 @@
 #
 # Reference:  https://github.com/wg/wrk
 #
-# Version     2.0
+# Version     4.0.2
 #
 
 # pull base image
-FROM scratch
+FROM williamyeh/ansible:mini-alpine3
+#FROM scratch
 #FROM busybox
 #FROM progrium/busybox
-#FROM alpine:3.1
+#FROM alpine:3.3
 #FROM debian:jessie
 
 MAINTAINER William Yeh <william.pjyeh@gmail.com>
 
-
-ADD  rootfs.tar.gz  /
 
 
 # configure

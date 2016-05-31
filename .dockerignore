@@ -1,2 +1,4 @@
 .git
+.gitignore
 .vagrant
+.travis.yml

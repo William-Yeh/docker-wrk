@@ -1,4 +1,0 @@
-buildrootfs:
-  build: .
-  volumes:
-    - .:/data

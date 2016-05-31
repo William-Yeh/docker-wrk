@@ -1,0 +1,17 @@
+#
+# packages to be installed via APK;
+# lines beginning with "! " (an exclamation mark, followed by a space) will *not* be *uninstalled* afterwards.
+#
+
+
+# ssl
+openssl ca-certificates
+
+# python-runtime
+python py-pip
+
+# build-dependencies
+python-dev libffi-dev openssl-dev build-base
+
+# reserved; required for wrk runtime
+! libgcc

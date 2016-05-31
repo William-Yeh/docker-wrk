@@ -1,17 +1,15 @@
 sudo: true
+services:
+    - docker
 
-install:
-  - curl -sLo - https://github.com/moul/travis-docker/raw/master/install.sh | sh -xe
+before_install:
+    - docker info
+    - docker version
+
+    - docker build -t wrk .
 
 script:
-  - echo "==> Clean up rootfs.tar.gz in advance..."
-  - rm rootfs.tar.gz
+    - docker run -i wrk https://www.google.com/ > result  
 
-  - echo "==> Generating rootfs.tar.gz ..."
-  - ./run 'docker build -t rootfs build-rootfs  &&  docker run -v $(pwd):/data rootfs'
-
-  - echo "==> Inspecting the newly-generated rootfs.tar.gz ..."
-  - tar ztvf rootfs.tar.gz
-
-  - echo "==> Building the main Docker image..."
-  - ./run 'docker build -t wrk .  &&  docker run wrk http://www.google.com/'
+    - echo "==> Validating the test results..."
+    - sh -c "[ -s result ]"

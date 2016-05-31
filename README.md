@@ -6,7 +6,7 @@ Docker-Wrk
 
 ## Summary
 
-Repository name in Docker Hub: **[williamyeh/wrk](https://registry.hub.docker.com/u/williamyeh/wrk/)**
+Repository name in Docker Hub: **[williamyeh/wrk](https://hub.docker.com/r/williamyeh/wrk/)**
 
 This repository contains Dockerized [wrk](https://github.com/wg/wrk), published to the public [Docker Hub](https://registry.hub.docker.com/) via **automated build** mechanism.
 
@@ -16,7 +16,9 @@ This repository contains Dockerized [wrk](https://github.com/wg/wrk), published 
 
 This docker image contains the following software stack:
 
-- Basic glibc and libnss stuff.
+- Alpine 3
+
+- Basic libgcc stuff.
 
 - wrk
 
@@ -25,12 +27,14 @@ Total image size is less than 10 MB.
 
 ### Dependencies
 
-- `scratch`.
+- [`williamyeh/ansible:mini-alpine3`](https://hub.docker.com/r/williamyeh/ansible/).
 
 
 ### History
 
-- 2.0 - Change base image from [`debian:jessie`](https://registry.hub.docker.com/_/debian/) to `scratch` (beginning from `williamyeh/wrk:4.0.1`).
+- 4.0.2 - Change base image from `scratch` to [`williamyeh/ansible:mini-alpine3`](https://hub.docker.com/r/williamyeh/ansible/) (beginning from `williamyeh/wrk:4.0.2`).
+
+- 4.0.1 - Change base image from [`debian:jessie`](https://hub.docker.com/_/debian/) to `scratch` (beginning from `williamyeh/wrk:4.0.1`).
 
 - 1.2 - Add: demo screencast.
 
@@ -50,7 +54,7 @@ Pull all versions:
 Pull specific version:
 
    ```
-   $ docker pull williamyeh/wrk:4.0.1
+   $ docker pull williamyeh/wrk:4.0.2
    ```
 
 
@@ -76,3 +80,8 @@ $ docker run --rm  -v `pwd`:/data  \
       williamyeh/wrk  \
       -s script.lua  http://www.google.com/
 ```
+
+
+#### More examples
+
+Digital Ocean has a great introduction to this utility: [How To Benchmark HTTP Latency with wrk on Ubuntu 14.04](https://www.digitalocean.com/community/tutorials/how-to-benchmark-http-latency-with-wrk-on-ubuntu-14-04)

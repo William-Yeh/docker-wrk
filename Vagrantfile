@@ -4,7 +4,7 @@ Vagrant.configure(2) do |config|
 
   config.vm.provision "shell", inline: <<-SHELL
       cd /vagrant
-      docker build .
+      docker build -t wrk .
   SHELL
 
 end

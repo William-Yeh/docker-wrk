@@ -1,0 +1,44 @@
+- hosts: all
+  become: True
+  vars:
+    - wrk_version: 4.0.2
+    - wrk_tarball_url: "https://github.com/wg/wrk/archive/{{ wrk_version }}.tar.gz"
+    - wrk_download_path: /tmp/wrk_working_dir
+    - wrk_src_path: "{{ wrk_download_path }}/wrk-{{ wrk_version }}"
+
+  tasks:
+    - name: install necessary pkgs for wrk's Makefile
+      apk: name={{ item }} state=latest
+      with_items:
+        - tar
+        - perl
+
+    - name: mkdir for download
+      file: path={{ wrk_download_path }}  state=directory
+
+    - debug: var=wrk_tarball_url
+
+    - name: download and uncompress tarball
+      unarchive:
+        src: "{{ wrk_tarball_url }}"
+        dest: "{{ wrk_download_path }}"
+        copy: no
+
+    - name: make executable
+      command: make
+      args:
+        chdir: "{{ wrk_src_path }}"
+        creates: wrk
+
+    - name: move executable
+      command: cp  "{{ wrk_src_path }}/wrk"  /usr/local/bin/wrk
+
+
+    - name: uninstall pkgs for wrk's Makefile
+      apk: name={{ item }} state=absent
+      with_items:
+        - tar
+        - perl
+
+    - name: remove download path
+      file: path={{ wrk_download_path }}  state=absent
