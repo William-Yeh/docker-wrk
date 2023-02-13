@@ -6,9 +6,9 @@ Docker-Wrk
 
 ## Summary
 
-Repository name in Docker Hub: **[williamyeh/wrk](https://hub.docker.com/r/williamyeh/wrk/)**
+Repository name in GitHub Container Registry (new): **ghcr.io/william-yeh/wrk** and in Docker Hub (old): **[williamyeh/wrk](https://hub.docker.com/r/williamyeh/wrk/)**
 
-This repository contains Dockerized [wrk](https://github.com/wg/wrk), published to the public [Docker Hub](https://registry.hub.docker.com/) via **automated build** mechanism.
+This repository contains Dockerized [wrk](https://github.com/wg/wrk), published to the public container registry via **automated build** mechanism.
 
 
 
@@ -16,21 +16,23 @@ This repository contains Dockerized [wrk](https://github.com/wg/wrk), published 
 
 This docker image contains the following software stack:
 
-- Alpine 3
+- [Distroless](https://github.com/GoogleContainerTools/distroless/blob/main/cc/README.md) debian 11
 
 - Basic libgcc stuff.
 
 - wrk
 
-Total image size is less than 10 MB.
+Total image size is less than 30 MB.
 
 
 ### Dependencies
 
-- [`williamyeh/ansible:mini-alpine3`](https://hub.docker.com/r/williamyeh/ansible/).
+- [`gcr.io/distroless/cc-debian11`](https://github.com/GoogleContainerTools/distroless/blob/main/cc/README.md).
 
 
 ### History
+
+- 4.2.0 - Change base image from [`williamyeh/ansible:mini-alpine3`](https://hub.docker.com/r/williamyeh/ansible/) to [`gcr.io/distroless/cc-debian11`](https://github.com/GoogleContainerTools/distroless/blob/main/cc/README.md).
 
 - 4.0.2 - Change base image from `scratch` to [`williamyeh/ansible:mini-alpine3`](https://hub.docker.com/r/williamyeh/ansible/) (beginning from `williamyeh/wrk:4.0.2`).
 
@@ -54,7 +56,7 @@ Pull all versions:
 Pull specific version:
 
    ```
-   $ docker pull williamyeh/wrk:4.0.2
+   $ docker pull williamyeh/wrk:4.2.0
    ```
 
 
