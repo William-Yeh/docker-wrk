@@ -1,4 +1,4 @@
-name: Docker
+name: Build and Publish
 
 on:
   push:
@@ -40,11 +40,11 @@ jobs:
             ./run_tests.sh
           fi
 
-      - name: Save tested Docker image for later use
+      - name: Save tested Docker image for later use in the pipeline
         run: |
           docker save -o /tmp/myimage.tar $IMAGE_NAME
 
-      - name: Upload artifact
+      - name: Upload artifact to pipeline storage
         uses: actions/upload-artifact@v3
         with:
           name: myimage
@@ -62,7 +62,7 @@ jobs:
     if: github.event_name == 'push'
 
     steps:
-      - name: Download artifact
+      - name: Download artifact from pipeline storage
         uses: actions/download-artifact@v3
         with:
           name: myimage
